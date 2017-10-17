@@ -19,4 +19,14 @@ class DockerDetails < Inspec.resource(1)
     output = Docker::Container.get(@id).json
     output['Config']['User']
   end
+
+
+  def layer_count
+    dkr = Docker::Container.get(@id).json
+    image_id=dkr['Image']
+    img = Docker::Image.get(image_id).json
+    img['RootFS']['Layers'].count
+  end
+
+
 end

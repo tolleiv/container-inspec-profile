@@ -15,7 +15,7 @@ This uses the *alpine* image and will cause a failed test due to the fact that t
 
 Run Tests:
 
-    docker run --rm -v $(pwd):/share -v /var/run/docker.sock:/var/run/docker.sock chef/inspec exec https://github.com/tolleiv/container-inspec-profile --attrs attrs.yaml
+    docker run --rm -v $PWD:/share -v /var/run/docker.sock:/var/run/docker.sock chef/inspec exec https://github.com/tolleiv/container-inspec-profile --attrs attrs.yaml
 
 
 Running a "suite" of tests:

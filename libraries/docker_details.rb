@@ -17,7 +17,8 @@ class DockerDetails < Inspec.resource(1)
 
   def user
     output = Docker::Container.get(@id).json
-    output['Config']['User']
+    usr = output['Config']['User']
+    usr.empty? ? "root" : usr
   end
 
 

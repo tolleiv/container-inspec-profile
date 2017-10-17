@@ -11,8 +11,7 @@ This uses the *alpine* image and will cause a failed test due to the fact that t
 
     # Run Guinea-pig container which we want to test
     docker run -d --name "guinea-pig" alpine /bin/sh -c "while true; do sleep 10; done"
-    ID=$(docker ps --format "{{ .ID }}" --filter="name=guinea-pig")
-    echo "container: ${ID}" > ./attrs.yaml
+    echo "container: guinea-pig" > ./attrs.yaml
 
 Run Tests:
 

@@ -25,4 +25,4 @@ Running a "suite" of tests:
 
 Cleanup:
 
-    docker rm -f $ID
+    docker rm -f guinea-pig

@@ -7,6 +7,8 @@ This shows the implementation of an InSpec Matcher and Resource using the Docker
 
 Preparation:
 
+This uses the *alpine* image and will cause a failed test due to the fact that the default alpine image uses 'root' as their user. Using the  *jenkins* image instead will result in a green test result due to the docker USER beeing set to 'jenkins'.
+
     # Run Guinea-pig container which we want to test
     docker run -d --name "guinea-pig" alpine /bin/sh -c "while true; do sleep 10; done"
     ID=$(docker ps --format "{{ .ID }}" --filter="name=guinea-pig")
@@ -21,3 +23,7 @@ Running a "suite" of tests:
 
     git clone https://github.com/tolleiv/container-inspec-profile.git
     container-inspec-profile/test.sh $ID
+
+Cleanup:
+
+    docker rm -f $ID

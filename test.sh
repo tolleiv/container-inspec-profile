@@ -12,3 +12,6 @@ echo "container: $1" > "$TMP1"
 
 inspec exec container-inspec-profile --attrs $TMP1
 inspec exec https://github.com/dev-sec/cis-dil-benchmark -t docker://$1
+inspec exec https://github.com/dev-sec/linux-baseline  -t docker://$1
+inspec exec https://github.com/dev-sec/linux-patch-baseline -t docker://$1
+
